@@ -2,27 +2,33 @@
 
 struct point
 {
-    int y, x;
+    float y, x;
 };
 struct rectangle
 {
     struct point upper_left, lower_right;
 };
 
-void print_area_rect(int ulx, int uly, int lrx, int lry)
+float area_rect(struct rectangle rect)
 {
     float rect_lenght, rect_height;
-    struct rectangle rect;
-    rect.upper_left.x = ulx;
-    rect.upper_left.y = uly;
-    rect.lower_right.x = lrx;
-    rect.lower_right.y = lry;
     rect_lenght = rect.lower_right.x - rect.upper_left.x;
     rect_height = rect.upper_left.y - rect.lower_right.y;
-    printf("Area: %f\n", rect_height * rect_lenght);
+    return rect_height * rect_lenght;
 }
 
 void main(void)
 {
-    print_area_rect(3,8,14,2);
+    struct rectangle rect;
+    printf("Input Upper Left : Coord X = ");
+    scanf("%f", &rect.upper_left.x);
+    printf("Input Upper Left : Coord Y = ");
+    scanf("%f", &rect.upper_left.y);
+    printf("Input Lower Right : Coord X = ");
+    scanf("%f", &rect.lower_right.x);
+    printf("Input Lower Right : Coord Y = ");
+    scanf("%f", &rect.lower_right.y);
+
+
+    printf("Area of rectangle is %f\n", area_rect(rect));
 }
