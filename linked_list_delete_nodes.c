@@ -28,7 +28,6 @@ int main(void)
     del_last_node(head);
     count_nodes(head);
 
-
     del_last_node(head);
     count_nodes(head);
 
@@ -71,7 +70,8 @@ void del_last_node(struct node *head)
     }
     else if (head->link == NULL)
     {
-        head->link = NULL;
+        free(head);
+        head = NULL;
     }
     else
     {
@@ -81,7 +81,7 @@ void del_last_node(struct node *head)
         {
             temp = temp->link;
         }
-        temp->link = NULL;
-        //needs free function to delete last element
+        free(temp->link);  // frees last node
+        temp->link = NULL; // assigns NULL to last node.
     }
 }
