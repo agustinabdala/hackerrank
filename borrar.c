@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(void)
 {
-    uint a = -99;
-    int b = 99;
-    printf("%2du\n%2du\n", a, b);
+
+    char hp[3] = "HP";
+
+    char fyt[3] = "FYT";
+
+    printf("%3s\n%3s\n", hp, fyt );
     return 0;
 }
