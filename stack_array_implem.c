@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
+
 #define MAX 4
 
 int stack_arr[MAX]; //define array globally to avoid passing the array every other operation/function
@@ -36,13 +43,22 @@ int main(void)
             printf("Enter number to push: ");
             scanf("%d", &data);
             push(data);
+            sleep(2);
             break;
         case 2:
             pop();
+            sleep(2);
+
             break;
         case 3:
             printf("Last element is %d\n", peek_top());
-            scanf("%d", &data);
+            sleep(2);
+            break;
+
+
+        case 4:
+            print_stack(stack_arr);
+            sleep(2);
             break;
 
         default:
